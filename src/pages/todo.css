@@ -1,0 +1,62 @@
+.todoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.todoWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 70%;
+    align-items: center;
+}
+
+.todoHeader{
+    position: sticky;
+    font-weight: 800;
+    font-size: 60px;
+}
+
+.todoApp{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.todoAppHeadings{
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid black;
+    width: 500px;
+    justify-content: space-evenly;
+}
+
+.todoAppHeadingItem{
+    padding: 20px;
+    padding-bottom: 10px;
+    font-size: large;
+}
+
+.todoAppHeadingItem:hover{
+    border: 1px solid #2F80ED;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todoAppHeadingItemSelected{
+    border-bottom: 3px solid #2F80ED !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0px !important;
+    font-weight: 900;
+}

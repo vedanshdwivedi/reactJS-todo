@@ -130,3 +130,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .DS_Store
+
+# React Component Preview
+previewConfig.json
+.prettierrc
