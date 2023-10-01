@@ -157,6 +157,9 @@ const TodoBody = () => {
                             <button
                                 className="todoReset"
                                 onClick={() => {
+                                    makeApiCall({
+                                        event: "Todo Reset",
+                                    });
                                     setTodoList([]);
                                     setTaskCounter(0);
                                     saveLocally([], 0);
