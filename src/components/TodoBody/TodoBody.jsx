@@ -6,6 +6,7 @@ import TodoItem from "../TodoItem/TodoItem";
 import "./TodoBody.css";
 
 const TodoBody = () => {
+    const [loadFromStorage, setLoadFromStorage] = useState(true);
     const [taskCounter, setTaskCounter] = useState(0);
     const [todoList, setTodoList] = useState([]);
     const [selectedTab, setSelectedTab] = useState("all");
@@ -17,11 +18,25 @@ const TodoBody = () => {
     });
 
     useEffect(() => {
-        const storedTodoList = localStorage.getItem("todoList");
-        if (storedTodoList) {
-            setTodoList(JSON.parse(storedTodoList));
+        if (loadFromStorage) {
+            const storedTodoList = localStorage.getItem("todoList");
+            if (storedTodoList) {
+                setTodoList(JSON.parse(storedTodoList));
+            }
+
+            const counter = localStorage.getItem("taskCounter");
+            if (counter) {
+                setTaskCounter(parseInt(counter));
+            }
+
+            setLoadFromStorage(false);
         }
     }, []);
+
+    const saveLocally = (listVal, counterVal) => {
+        localStorage.setItem('todoList', JSON.stringify(listVal));
+        localStorage.setItem('taskCounter', counterVal)
+    }
 
     const addTask = (text) => {
         const newTodo = {
@@ -29,14 +44,17 @@ const TodoBody = () => {
             checked: false,
             id: taskCounter,
         };
-        setTaskCounter(taskCounter + 1);
-        setTodoList([...todoList, newTodo]);
 
-        localStorage.setItem("todoList", JSON.stringify(todoList));
+        const newList = [...todoList, newTodo];
+        const newCount = taskCounter + 1;
+
+        setTaskCounter(newCount);
+        setTodoList(newList);
+
+        saveLocally(newList, newCount);
     };
 
     const updateTaskStatus = (taskId, checked) => {
-        
         const updatedTodoList = [...todoList];
         const taskIndex = updatedTodoList.findIndex(
             (item) => item.id === taskId
