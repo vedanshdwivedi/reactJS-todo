@@ -34,9 +34,9 @@ const TodoBody = () => {
     }, [loadFromStorage]);
 
     const saveLocally = (listVal, counterVal) => {
-        localStorage.setItem('todoList', JSON.stringify(listVal));
-        localStorage.setItem('taskCounter', counterVal)
-    }
+        localStorage.setItem("todoList", JSON.stringify(listVal));
+        localStorage.setItem("taskCounter", counterVal);
+    };
 
     const addTask = (text) => {
         const newTodo = {
@@ -103,7 +103,7 @@ const TodoBody = () => {
                 itemId={itemId}
                 itemText={itemText}
                 itemChecked={checkBox}
-                deleteHandler={deleteTask}
+                deleteHandler={selectedTab === "completed" ? deleteTask : null}
                 updateHandler={updateTaskStatus}
                 key={itemId}
             />
@@ -152,6 +152,23 @@ const TodoBody = () => {
                             selectedTab
                         );
                     })}
+                    {selectedTab === "completed" ? (
+                        <>
+                            <button
+                                className="todoReset"
+                                onClick={() => {
+                                    setTodoList([]);
+                                    setTaskCounter(0);
+                                    saveLocally([], 0);
+                                }}
+                            >
+                                <i className="ri-delete-bin-line"></i>&nbsp;
+                                Delete All
+                            </button>
+                        </>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </>

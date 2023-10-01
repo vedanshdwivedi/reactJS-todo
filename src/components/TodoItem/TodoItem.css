@@ -22,8 +22,8 @@
 }
 
 .todoAppItemDelete {
-    font-size: 20px;
-    color: rgb(253, 112, 112);
+    /* font-size: 20px; */
+    color: #bdbdbd;
     font-weight: bold;
 }
 
@@ -34,4 +34,9 @@
 
 .completed {
     text-decoration: line-through;
+}
+
+.todoText{
+    font-weight: 500;
+    font-size: 18px;
 }

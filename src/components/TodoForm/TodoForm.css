@@ -1,13 +1,17 @@
+.todoAppFormTag{
+    width: 100%;
+}
+
 .todoFormElements{
     display: flex;
-    align-items: center;
-    justify-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .formInput{
-    height: 20px;
-    width: 30vh;
-    padding: 10px;
+    height: 60px;
+    width: 90%;
+    padding-left: 17px;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -20,13 +24,12 @@
 .formBtn{
     background-color: #2F80ED;
     color: white;
-    height: 40px;
-    width: 10vh;
-    padding: 10px;
-    margin: 10px;
+    height: 60px;
+    padding: 20px 40px;
     border-radius: 10px;
     border: none
 }
+    
 
 .formBtn:hover{
     border: 1px solid #2F80ED;
@@ -34,3 +37,9 @@
     background-color: white;
     cursor: pointer;
 }
+
+.todoInputElement{
+    width: 90%;
+}
+
+

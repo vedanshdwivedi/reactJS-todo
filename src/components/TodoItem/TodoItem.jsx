@@ -25,16 +25,22 @@ const TodoItem = (prop) => {
                         {prop.itemText}
                     </label>
                 </div>
-                <div className="rightTodoAppItemSection">
-                    <div className="todoAppItemDelete">
-                        <i
-                            className="ri-delete-bin-2-line"
-                            onClick={() => {
-                                prop.deleteHandler(prop.itemId);
-                            }}
-                        ></i>
-                    </div>
-                </div>
+                {prop.deleteHandler ? (
+                    <>
+                        <div className="rightTodoAppItemSection">
+                            <div className="todoAppItemDelete">
+                                <i
+                                    className="ri-delete-bin-line"
+                                    onClick={() => {
+                                        prop.deleteHandler(prop.itemId);
+                                    }}
+                                ></i>
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <></>
+                )}
             </div>
         </>
     );

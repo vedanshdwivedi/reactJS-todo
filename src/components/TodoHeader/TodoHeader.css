@@ -1,0 +1,31 @@
+
+.todoAppHeadings{
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: 1px solid #bdbdbd;
+    justify-content: space-evenly;
+    width: 95%;
+}
+
+.todoAppHeadingItem{
+    padding: 20px;
+    padding-bottom: 10px;
+    font-size: large;
+}
+
+.todoAppHeadingItem:hover{
+    cursor: pointer;
+}
+
+.todoAppHeadingItemSelected{
+    border-bottom: 3px solid #2F80ED !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0px !important;
+    font-weight: 900;
+}

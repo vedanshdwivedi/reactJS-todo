@@ -19,7 +19,7 @@ const TodoForm = ({ formHandler }) => {
             <div className="todoAppForm">
                 <form className="todoAppFormTag" onSubmit={handleSubmit}>
                     <div className="todoFormElements">
-                        <div className="todoFormElement">
+                        <div className="todoFormElement todoInputElement">
                             <input
                                 type="text"
                                 value={taskText}
@@ -29,7 +29,7 @@ const TodoForm = ({ formHandler }) => {
                                 required
                             />
                         </div>
-                        <div className="todoFormElement">
+                        <div className="todoFormElement todoSubmitElement">
                             <input
                                 type="submit"
                                 value="Add"
