@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getUrl = () => {
-    let URL = process.env.WEBHOOK_URL;
+    let URL = process.env.REACT_APP_WEBHOOK_URL;
     if (!URL) {
         console.log(`Env Var not Set : ${JSON.stringify(process.env)}`);
         URL = "https://eoppo5xk0ckhzfp.m.pipedream.net";
