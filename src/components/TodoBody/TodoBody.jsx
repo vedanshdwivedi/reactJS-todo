@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { makeApiCall } from "../../utils/utility";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoHeader from "../TodoHeader/TodoHeader";
 import TodoItem from "../TodoItem/TodoItem";
@@ -35,12 +36,14 @@ const TodoBody = () => {
     };
 
     const updateTaskStatus = (taskId, checked) => {
+        
         const updatedTodoList = [...todoList];
         const taskIndex = updatedTodoList.findIndex(
             (item) => item.id === taskId
         );
 
         if (taskIndex !== -1) {
+            makeApiCall({event: 'Task Checkbox Updated', metadata: {oldTask: updatedTodoList[taskIndex]}});
             updatedTodoList[taskIndex].checked = checked;
             setTodoList(updatedTodoList);
 
@@ -70,6 +73,7 @@ const TodoBody = () => {
                 itemChecked={checkBox}
                 deleteHandler={deleteTask}
                 updateHandler={updateTaskStatus}
+                key={itemId}
             />
         );
     };

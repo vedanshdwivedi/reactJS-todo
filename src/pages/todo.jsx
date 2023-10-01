@@ -3,6 +3,8 @@ import TodoBody from "../components/TodoBody/TodoBody";
 import "./todo.css";
 
 const TodoApp = () => {
+    // useEffect(makeApiCall({ event: "pageLoad", metadata: {}}), []);
+
     return (
         <>
             <div className="todoContainer">

@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import './TodoForm.css';
+import { makeApiCall } from "../../utils/utility";
+import "./TodoForm.css";
 
 const TodoForm = ({ formHandler }) => {
     const [taskText, setTaskText] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        makeApiCall({ event: "Form Submitted", metadata: {text: taskText} });
         if (taskText.trim() !== "") {
             formHandler(taskText);
-            setTaskText("")
+            setTaskText("");
         }
     };
 

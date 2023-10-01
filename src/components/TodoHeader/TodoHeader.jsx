@@ -1,4 +1,5 @@
 import React from "react";
+import { makeApiCall } from "../../utils/utility";
 import "./TodoHeader.css";
 
 const TodoHeader = (prop) => {
@@ -7,6 +8,13 @@ const TodoHeader = (prop) => {
     };
 
     const handleClick = (newSelectedMenu) => {
+        makeApiCall({
+            event: "Menu Changed",
+            metadata: {
+                newState: newSelectedMenu,
+                oldState: prop.selectedTabStatus,
+            },
+        });
         let updatedClassName = { ...prop.selectedTabStatus };
 
         if (newSelectedMenu === "all") {
