@@ -31,7 +31,7 @@ const TodoBody = () => {
 
             setLoadFromStorage(false);
         }
-    }, []);
+    }, [loadFromStorage]);
 
     const saveLocally = (listVal, counterVal) => {
         localStorage.setItem('todoList', JSON.stringify(listVal));
