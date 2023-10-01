@@ -1,8 +1,18 @@
 import axios from "axios";
 
+const getUrl = () => {
+    let URL = process.env.WEBHOOK_URL;
+    if (!URL) {
+        console.log(`Env Var not Set : ${JSON.stringify(process.env)}`);
+        URL = "https://eoppo5xk0ckhzfp.m.pipedream.net";
+    } 
+
+    return URL;
+};
+
 export const makeApiCall = (payloadObject) => {
     try {
-        const url = process.env.WEBHOOK_URL || "https://eo2dshcw0etqkp1.m.pipedream.net";
+        const url = getUrl();
         const headers = {
             "Content-Type": "application/json",
         };
