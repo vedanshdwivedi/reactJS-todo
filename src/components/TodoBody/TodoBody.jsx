@@ -43,22 +43,36 @@ const TodoBody = () => {
         );
 
         if (taskIndex !== -1) {
-            makeApiCall({event: 'Task Checkbox Updated', metadata: {oldTask: updatedTodoList[taskIndex]}});
+            makeApiCall({
+                event: "Task Checkbox Updated",
+                metadata: { oldTask: updatedTodoList[taskIndex] },
+            });
             updatedTodoList[taskIndex].checked = checked;
             setTodoList(updatedTodoList);
 
-            localStorage.setItem("todoList", JSON.stringify(todoList));
+            localStorage.setItem("todoList", JSON.stringify(updatedTodoList));
         }
     };
 
     const deleteTask = (taskId) => {
         const updatedTodoList = [...todoList];
+        const taskIndex = updatedTodoList.findIndex(
+            (item) => item.id === taskId
+        );
+
+        if (taskIndex !== -1) {
+            makeApiCall({
+                event: "Task Deleted",
+                metadata: { deleted: todoList[taskIndex] },
+            });
+        }
+
         const filteredTodoList = updatedTodoList.filter(
             (item) => item.id !== taskId
         );
         setTodoList(filteredTodoList);
 
-        localStorage.setItem("todoList", JSON.stringify(todoList));
+        localStorage.setItem("todoList", JSON.stringify(filteredTodoList));
     };
 
     const updateSelectedTab = (newTab) => {
