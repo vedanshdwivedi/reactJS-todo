@@ -134,3 +134,4 @@ dist
 # React Component Preview
 previewConfig.json
 .prettierrc
+build
