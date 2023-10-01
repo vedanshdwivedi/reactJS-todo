@@ -1,0 +1,4 @@
+.todoAppItems {
+    display: flex;
+    flex-direction: column;
+}

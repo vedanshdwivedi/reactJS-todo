@@ -1,0 +1,36 @@
+.todoFormElements{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.formInput{
+    height: 20px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.formInput:hover{
+    border: 1px solid #2F80ED;
+    cursor: pointer;
+}
+
+.formBtn{
+    background-color: #2F80ED;
+    color: white;
+    height: 40px;
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none
+}
+
+.formBtn:hover{
+    border: 1px solid #2F80ED;
+    color: #2F80ED;
+    background-color: white;
+    cursor: pointer;
+}

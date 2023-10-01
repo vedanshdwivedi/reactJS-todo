@@ -1,10 +1,43 @@
-import React from 'react'
-import './TodoItem.css'
+import React from "react";
+import "./TodoItem.css";
 
-const TodoItem = () => {
-  return (
-    <div>TodoItem</div>
-  )
-}
+const TodoItem = (prop) => {
+    const textClassName = prop.itemChecked ? "todoText completed" : "todoText";
 
-export default TodoItem
+    return (
+        <>
+            <div className="todoAppItem">
+                {/* {prop.itemId} {prop.itemText} {JSON.stringify(prop.itemChecked)} */}
+                <div className="leftTodoAppItemSection">
+                    <input
+                        type="checkbox"
+                        className="todoCheckbox"
+                        id={`item_${prop.itemId}`}
+                        checked={prop.itemChecked}
+                        onChange={() => {
+                            prop.updateHandler(prop.itemId, !prop.itemChecked);
+                        }}
+                    />
+                    <label
+                        htmlFor={`item_${prop.itemId}`}
+                        className={textClassName}
+                    >
+                        {prop.itemText}
+                    </label>
+                </div>
+                <div className="rightTodoAppItemSection">
+                    <div className="todoAppItemDelete">
+                        <i
+                            className="ri-delete-bin-2-line"
+                            onClick={() => {
+                                prop.deleteHandler(prop.itemId);
+                            }}
+                        ></i>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default TodoItem;
