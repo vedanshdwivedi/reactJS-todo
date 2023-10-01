@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoHeader from "../TodoHeader/TodoHeader";
 import TodoItem from "../TodoItem/TodoItem";
@@ -15,6 +15,13 @@ const TodoBody = () => {
         selected: "all",
     });
 
+    useEffect(() => {
+        const storedTodoList = localStorage.getItem("todoList");
+        if (storedTodoList) {
+            setTodoList(JSON.parse(storedTodoList));
+        }
+    }, []);
+
     const addTask = (text) => {
         const newTodo = {
             text,
@@ -23,7 +30,8 @@ const TodoBody = () => {
         };
         setTaskCounter(taskCounter + 1);
         setTodoList([...todoList, newTodo]);
-        console.log(todoList);
+
+        localStorage.setItem("todoList", JSON.stringify(todoList));
     };
 
     const updateTaskStatus = (taskId, checked) => {
@@ -35,6 +43,8 @@ const TodoBody = () => {
         if (taskIndex !== -1) {
             updatedTodoList[taskIndex].checked = checked;
             setTodoList(updatedTodoList);
+
+            localStorage.setItem("todoList", JSON.stringify(todoList));
         }
     };
 
@@ -44,6 +54,8 @@ const TodoBody = () => {
             (item) => item.id !== taskId
         );
         setTodoList(filteredTodoList);
+
+        localStorage.setItem("todoList", JSON.stringify(todoList));
     };
 
     const updateSelectedTab = (newTab) => {
