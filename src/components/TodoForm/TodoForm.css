@@ -6,7 +6,7 @@
 
 .formInput{
     height: 20px;
-    width: 400px;
+    width: 30vh;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid black;
@@ -21,7 +21,7 @@
     background-color: #2F80ED;
     color: white;
     height: 40px;
-    width: 100px;
+    width: 10vh;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
