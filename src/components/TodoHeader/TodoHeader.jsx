@@ -1,5 +1,4 @@
 import React from "react";
-import { makeApiCall } from "../../utils/utility";
 import "./TodoHeader.css";
 
 const TodoHeader = (prop) => {
