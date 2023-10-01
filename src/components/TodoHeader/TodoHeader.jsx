@@ -12,7 +12,7 @@ const TodoHeader = (prop) => {
             event: "Menu Changed",
             metadata: {
                 newState: newSelectedMenu,
-                oldState: prop.selectedTabStatus,
+                oldState: prop.selectedTabStatus.selected,
             },
         });
         let updatedClassName = { ...prop.selectedTabStatus };
