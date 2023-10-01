@@ -8,13 +8,6 @@ const TodoHeader = (prop) => {
     };
 
     const handleClick = (newSelectedMenu) => {
-        makeApiCall({
-            event: "Menu Changed",
-            metadata: {
-                newState: newSelectedMenu,
-                oldState: prop.selectedTabStatus.selected,
-            },
-        });
         let updatedClassName = { ...prop.selectedTabStatus };
 
         if (newSelectedMenu === "all") {
