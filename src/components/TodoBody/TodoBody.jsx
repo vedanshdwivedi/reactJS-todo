@@ -30,7 +30,7 @@ const TodoBody = () => {
             id: taskCounter,
         };
         setTaskCounter(taskCounter + 1);
-        setTodoList(todoList);
+        setTodoList([...todoList, newTodo]);
 
         localStorage.setItem("todoList", JSON.stringify(todoList));
     };
