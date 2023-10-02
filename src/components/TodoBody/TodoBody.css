@@ -24,3 +24,7 @@
     justify-content: space-between;
     padding: 10px 25px;
 }
+
+.todoReset:hover{
+    background-color: #ea4242;
+}
